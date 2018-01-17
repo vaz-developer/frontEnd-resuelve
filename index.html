@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='MyFirtsApp'>
+<head>
+    <meta charset="UTF-8">
+    <title>Hola controller</title>
+</head>
+<body ng-controller="FirtsController"><!--tiene acceso a todos los atributos del controlador-->
+	<input type="text" ng-model="nuevoConcepto.typeConcepto">
+	<br>
+	<button ng-click="agregarConcepto()">Agregar +</button>
+	<h3>CONCEPTOS</h3>
+	<ul>
+		<li ng-repeat="typeConcepto in conceptos">
+			{{ typeConcepto.typeConcepto }}<button ng-click="erase()">ELIMINAR</button>
+		</li>
+	</ul>
+	<!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="controller.js"></script>
+</body>
+</html>
