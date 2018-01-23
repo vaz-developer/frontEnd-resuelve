@@ -9,11 +9,47 @@
 	<br>
 	<button ng-click="agregarConcepto()">Agregar +</button>
 	<h3>CONCEPTOS</h3>
-	<ul>
+	<!--TABLE HEAD-->
+	<table>
+		<thead>
+    		<tr>
+				<th>Descripción</th>
+				<th>Cantidad</th>
+				<th>Unidades</th>
+				<th>Precio unitario</th>
+				<th>Total</th>
+				<th>Acciones</th>
+    		</tr>
+  		</thead>
+		<tbody>
+			<tr ng-repeat="typeConcepto in conceptos">
+<!-- 				<td>{{ typeConcepto.typeConcepto }}</td>
+				<td>D</td>
+				<td>Jane</td>
+				<td>Doe</td>
+				<td>Jane</td> -->
+			<td>otro</td>
+			<td>mas</td>	        
+            <td><input type="number" ng:model="item.qty" ng:required ></td>
+            <td><input type="number" ng:model="item.cost" ng:required></td>
+            <td>{{item.qty * item.cost | currency}}</td>
+				<td><button ng-click="erase()">ELIMINAR</button></td>
+			</tr>
+			<tr>
+				<td>Total:</td>
+            <td>{{total() | currency}}</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+
+	<!-- <ul>
 		<li ng-repeat="typeConcepto in conceptos">
 			{{ typeConcepto.typeConcepto }}<button ng-click="erase()">ELIMINAR</button>
 		</li>
-	</ul>
+	</ul> -->
 	<!--SCRIPTS-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
     <script src="controller.js"></script>

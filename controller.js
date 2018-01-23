@@ -13,4 +13,17 @@ angular.module("MyFirtsApp",[])
 		$scope.erase = function(){
 			 $scope.conceptos.splice(this.$index, 1);
 		}
+
+		$scope.total = function() {
+        var total = 0;
+        angular.forEach($scope.items, function(item) {
+            total += item.qty * item.cost;
+        })
+
+        return total;
+    }
+
+
+
+
 	}]);
