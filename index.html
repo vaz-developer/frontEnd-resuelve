@@ -5,10 +5,11 @@
     <title>Hola controller</title>
 </head>
 <body ng-controller="FirtsController"><!--tiene acceso a todos los atributos del controlador-->
-	<input type="text" ng-model="nuevoConcepto.typeConcepto">
+	<h2>CONCEPTOS</h2>
+	<button ng-click="agregarConcepto()">+ Agregar concepto</button>
 	<br>
-	<button ng-click="agregarConcepto()">Agregar +</button>
-	<h3>CONCEPTOS</h3>
+	<br>
+	<br>
 	<!--TABLE HEAD-->
 	<table>
 		<thead>
@@ -28,16 +29,34 @@
 				<td>Jane</td>
 				<td>Doe</td>
 				<td>Jane</td> -->
-			<td>otro</td>
-			<td>mas</td>	        
-            <td><input type="number" ng:model="item.qty" ng:required ></td>
-            <td><input type="number" ng:model="item.cost" ng:required></td>
-            <td>{{item.qty * item.cost | currency}}</td>
+				<td><input type="text"></td>	        
+	            <td><input type="number" ng:model="item.c" required ></td>
+	            <td><input type="number" ng:model="item.u" required></td>
+	            <td><input type="number" ng:model="item.pU" required></td>
+	            <td>{{item.c * item.pU | currency }}</td>
 				<td><button ng-click="erase()">ELIMINAR</button></td>
 			</tr>
+			<br>
 			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>Subtotal:</td>
+            	<td>{{total() | currency}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td>IVA (16%):</td>
+            	<td>{{}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
 				<td>Total:</td>
-            <td>{{total() | currency}}</td>
+            	<td>{{}}</td>
 			</tr>
 		</tbody>
 	</table>

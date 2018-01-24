@@ -1,9 +1,8 @@
 angular.module("MyFirtsApp",[]) 
 	.controller("FirtsController",["$scope",function ($scope){
-		$scope.nombre = "Evelyn"; 
-		$scope.nuevoConcepto = {};	
-		$scope.conceptos = [
-		];
+		$scope.conceptos = [];
+		$scope.total = 0;
+
 		//Agregamos metodos para nuestro controlador
 		$scope.agregarConcepto = function(){
 			//push agrega un nuevo elemento a un arreglo
@@ -17,13 +16,10 @@ angular.module("MyFirtsApp",[])
 		$scope.total = function() {
         var total = 0;
         angular.forEach($scope.items, function(item) {
-            total += item.qty * item.cost;
+            total += item.c * item.pU;
         })
 
         return total;
     }
 
-
-
-
-	}]);
+}]);
