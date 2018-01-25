@@ -23,19 +23,15 @@
     		</tr>
   		</thead>
 		<tbody>
-			<tr ng-repeat="typeConcepto in conceptos">
-<!-- 				<td>{{ typeConcepto.typeConcepto }}</td>
-				<td>D</td>
-				<td>Jane</td>
-				<td>Doe</td>
-				<td>Jane</td> -->
+			<tr ng-repeat="typeConcepto in items.conceptos">
 				<td><input type="text"></td>	        
-	            <td><input type="number" ng:model="item.c" required ></td>
-	            <td><input type="number" ng:model="item.u" required></td>
-	            <td><input type="number" ng:model="item.pU" required></td>
-	            <td>{{item.c * item.pU | currency }}</td>
+	            <td><input type="number" ng:model="typeConcepto.cantidad" required ></td>
+	            <td><input type="number" ng:model="typeConcepto.unidades" required></td>
+	            <td><input type="number" ng:model="typeConcepto.precio" required></td>
+	            <td>{{typeConcepto.cantidad * typeConcepto.precio | currency }}</td>
 				<td><button ng-click="erase()">ELIMINAR</button></td>
 			</tr>
+
 			<br>
 			<tr>
 				<td></td>
@@ -70,7 +66,7 @@
 		</li>
 	</ul> -->
 	<!--SCRIPTS-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
     <script src="controller.js"></script>
 </body>
 </html>
