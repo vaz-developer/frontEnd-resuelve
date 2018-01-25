@@ -15,24 +15,24 @@ angular.module("MyFirtsApp",[])
 		$scope.agregarConcepto = function(){
 			//push agrega un nuevo elemento a un arreglo
 			$scope.items.conceptos.push({
-				cantidad: 1,
+				cantidad: 0,
 				unidades: 0,
 				precio: 0,
 				total: 0
 			});
 		}; 
 
-		$scope.erase = function(){
-			 $scope.items.conceptos.splice(index, 1);
+		$scope.erase = function(borrarConcepto){
+			 $scope.items.conceptos.splice(borrarConcepto, 1);
 		}
 
-		$scope.total = function() {
-        var total = 0;
-        angular.forEach(this.items.conceptos, function(typeConcepto) {
-            total += typeConcepto.cantidad * typeConcepto.precio;
-        })
+		$scope.subtotal = function() {
+        	var subtotal = 0;
+        	angular.forEach(this.items.conceptos, function(typeConcepto) {
+            	subtotal += typeConcepto.cantidad * typeConcepto.precio;
+        	})
 
-        return total;
+        return subtotal;
     }
 
 }]);

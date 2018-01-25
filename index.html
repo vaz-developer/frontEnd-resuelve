@@ -29,7 +29,7 @@
 	            <td><input type="number" ng:model="typeConcepto.unidades" required></td>
 	            <td><input type="number" ng:model="typeConcepto.precio" required></td>
 	            <td>{{typeConcepto.cantidad * typeConcepto.precio | currency }}</td>
-				<td><button ng-click="erase()">ELIMINAR</button></td>
+				<td><button ng-click="erase($index)">ELIMINAR</button></td>
 			</tr>
 
 			<br>
@@ -38,21 +38,21 @@
 				<td></td>
 				<td></td>
 				<td>Subtotal:</td>
-            	<td>{{total() | currency}}</td>
+            	<td>{{subtotal() | currency}}</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>IVA (16%):</td>
-            	<td>{{}}</td>
+            	<td>{{subtotal() * 0.16 | currency}}</td>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>Total:</td>
-            	<td>{{}}</td>
+            	<td>{{ subtotal() + (subtotal()*0.16) | currency}}</td>
 			</tr>
 		</tbody>
 	</table>
