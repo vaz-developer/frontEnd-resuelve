@@ -28,9 +28,7 @@ angular.module("tableApp",[])
 		$scope.eraseAll = function(eraseAll){
 			 $scope.items.concepts.splice(eraseAll);
 		}
-
-
-
+		//Operation of subtotal
 		$scope.subtotal = function() {
         	var subtotal = 0;
         	angular.forEach($scope.items.concepts, function(typeConcept) {
