@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Tabla de conceptos</title>
+    <link rel="stylesheet" href="style.css">
+        <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="tableController">
 	<h2>CONCEPTOS</h2>
-	<button ng-click="newConcept()">+ Agregar concepto</button>
+	<button class="bt" ng-click="newConcept()">+ Agregar concepto</button>
 	<br>
 	<br>
 	<br>
@@ -23,49 +26,49 @@
     		</tr>
   		</thead>
 		<tbody>
-			<tr ng-repeat="typeConcept in items.concepts">
+			<tr class="onlyHover" ng-repeat="typeConcept in items.concepts">
 				<td><input type="text"></td>	        
 	            <td><input type="number" ng:model="typeConcept.amount" required ></td>
 	            <td><input type="number" ng:model="typeConcept.units" required></td>
 	            <td><input type="number" ng:model="typeConcept.price" required></td>
 	            <td ng-bind="typeConcept.amount * typeConcept.price | currency "></td>
-				<td><button ng-click="erase($index)">ELIMINAR</button></td>
-				<td><button ng-click="$log.log(items)">P</button></td>
+				<td><button class="bt" ng-click="erase($index)">ELIMINAR</button></td>
+				<td><button class="bt" ng-click="$log.log(items)">P</button></td>
 			</tr>
-
-			<br>
-			<tr>
+		</tbody>
+		<tfoot>
+			<!--SUBTOTAL-->
+			<tr class="onlyHover">
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>Subtotal:</td>
             	<td ng-bind="subtotal() | currency"></td>
+            	<td></td>
+            	<td></td>
 			</tr>
-			<tr>
+			<!--TAX-->
+			<tr class="onlyHover">
 				<td></td>
 				<td></td>
 				<td></td>
 				<td>IVA (16%):</td>
             	<td ng-bind="subtotal() * 0.16 | currency"></td>
+            	<td></td>
+            	<td></td>
 			</tr>
-			<tr>
+			<!--TOTAL-->
+			<tr class="onlyHover">
 				<td></td>
 				<td></td>
-				<td></td>
+				<td class="borderBottom"></td>
 				<td>Total:</td>
             	<td ng-bind="subtotal() + (subtotal()*0.16) | currency"></td>
+            	<td></td>
+            	<td></td>
 			</tr>
-		</tbody>
+		</tfoot>
 	</table>
-
-
-
-
-	<!-- <ul>
-		<li ng-repeat="typeConcepto in conceptos">
-			{{ typeConcepto.typeConcepto }}<button ng-click="erase()">ELIMINAR</button>
-		</li>
-	</ul> -->
 	<!--SCRIPTS-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
     <script src="controller.js"></script>
