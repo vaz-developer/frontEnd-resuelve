@@ -30,6 +30,7 @@
 	            <td><input type="number" ng:model="typeConcept.price" required></td>
 	            <td ng-bind="typeConcept.amount * typeConcept.price | currency "></td>
 				<td><button ng-click="erase($index)">ELIMINAR</button></td>
+				<td><button ng-click="$log.log(items)">P</button></td>
 			</tr>
 
 			<br>

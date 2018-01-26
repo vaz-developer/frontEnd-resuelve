@@ -1,5 +1,7 @@
 angular.module("tableApp",[]) 
-	.controller("tableController",["$scope",function ($scope){
+	.controller("tableController",["$scope","$log",function ($scope, $log){
+
+		$scope.$log = $log;
 
 		$scope.items =  {
 			concepts: [{
@@ -25,7 +27,7 @@ angular.module("tableApp",[])
 
 		$scope.subtotal = function() {
         	var subtotal = 0;
-        	angular.forEach(this.items.concepts, function(typeConcept) {
+        	angular.forEach($scope.items.concepts, function(typeConcept) {
             	subtotal += typeConcept.amount * typeConcept.price;
         	})
 
