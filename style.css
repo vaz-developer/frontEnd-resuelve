@@ -13,16 +13,16 @@ th, td {
 	text-align: left;
 }
 tbody, tfoot tr:nth-child(odd) {
-	background: #6EAFA5;
+	background: #D5CDCD;
 }
 tr:nth-child(even) {
-	background: #AEEAE1;
+	background-color: #E7DEDE;
 }
 table tr:last-child td{
   border-bottom: 5px solid #6E6565;
 }
 .onlyHover:hover {
-	background-color: #ECAE77;
+	background-color: #6EAFA5;
 }
 input {
   border: none;
@@ -39,11 +39,12 @@ input:focus {
     border: 0;
     outline: 0;
 }
-.bt-newConcept {
+.bt-newConcept, .bt-eraseAll {
 	height: 50px;
 	line-height: 50px;
     border-radius: 4px;
     float: right;
+    margin-left: 1rem;
     margin-bottom: 2rem;
     font-size: 15px;
     font-weight: 600;

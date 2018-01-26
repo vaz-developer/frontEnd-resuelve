@@ -12,6 +12,9 @@
 	<button class="commonBts bt-newConcept" ng-click="newConcept()">
 		<i class="fa fa-plus" aria-hidden="true"></i> Agregar concepto
 	</button>
+	<button class="commonBts bt-eraseAll" ng-click="eraseAll($index)">
+		<i class="fa fa-trash" aria-hidden="true"></i> Borrar todo
+	</button>
 	<br>
 	<br>
 	<br>
@@ -38,9 +41,6 @@
 					<button class="commonBts bt-actions" ng-click="erase($index)">
 						<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
 					</button>
-					<button class="commonBts bt-actions" ng-click="$log.log(items)">
-						<i class="fa fa-code fa-2x" aria-hidden="true"></i>
-					</button>
 				</td>
 			</tr>
 		</tbody>
@@ -52,7 +52,11 @@
 				<td></td>
 				<td>Subtotal:</td>
             	<td ng-bind="subtotal() | currency"></td>
-            	<td></td>
+            	<td>
+            		<button class="commonBts bt-actions" ng-click="$log.log(items)">
+						<i class="fa fa-code fa-2x" aria-hidden="true"></i>
+					</button>
+            	</td>
 			</tr>
 			<!--TAX-->
 			<tr class="onlyHover">

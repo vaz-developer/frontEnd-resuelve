@@ -24,6 +24,12 @@ angular.module("tableApp",[])
 		$scope.erase = function(eraseConcept){
 			 $scope.items.concepts.splice(eraseConcept, 1);
 		}
+		//Delete all rows
+		$scope.eraseAll = function(eraseAll){
+			 $scope.items.concepts.splice(eraseAll);
+		}
+
+
 
 		$scope.subtotal = function() {
         	var subtotal = 0;
