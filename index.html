@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body ng-controller="tableController">
-	<h2>CONCEPTOS</h2>
-	<button class="bt" ng-click="newConcept()">+ Agregar concepto</button>
+	<h1 class="title">CONCEPTOS</h1>
+	<button class="commonBts bt-newConcept" ng-click="newConcept()">
+		<i class="fa fa-plus" aria-hidden="true"></i> Agregar concepto
+	</button>
 	<br>
 	<br>
 	<br>
@@ -17,23 +19,29 @@
 	<table>
 		<thead>
     		<tr>
-				<th>Descripción</th>
-				<th>Cantidad</th>
-				<th>Unidades</th>
-				<th>Precio unitario</th>
-				<th>Total</th>
-				<th>Acciones</th>
+				<th class="subtitle">Descripción</th>
+				<th class="subtitle">Cantidad</th>
+				<th class="subtitle">Unidades</th>
+				<th class="subtitle">Precio unitario</th>
+				<th class="subtitle">Total</th>
+				<th class="subtitle">Acciones</th>
     		</tr>
   		</thead>
 		<tbody>
 			<tr class="onlyHover" ng-repeat="typeConcept in items.concepts">
-				<td><input type="text"></td>	        
+				<td><input type="text" placeholder="Agregar..."></td>	        
 	            <td><input type="number" ng:model="typeConcept.amount" required ></td>
 	            <td><input type="number" ng:model="typeConcept.units" required></td>
 	            <td><input type="number" ng:model="typeConcept.price" required></td>
 	            <td ng-bind="typeConcept.amount * typeConcept.price | currency "></td>
-				<td><button class="bt" ng-click="erase($index)">ELIMINAR</button></td>
-				<td><button class="bt" ng-click="$log.log(items)">P</button></td>
+				<td>
+					<button class="commonBts bt-actions" ng-click="erase($index)">
+						<i class="fa fa-trash fa-2x" aria-hidden="true"></i>
+					</button>
+					<button class="commonBts bt-actions" ng-click="$log.log(items)">
+						<i class="fa fa-code fa-2x" aria-hidden="true"></i>
+					</button>
+				</td>
 			</tr>
 		</tbody>
 		<tfoot>
@@ -45,7 +53,6 @@
 				<td>Subtotal:</td>
             	<td ng-bind="subtotal() | currency"></td>
             	<td></td>
-            	<td></td>
 			</tr>
 			<!--TAX-->
 			<tr class="onlyHover">
@@ -55,7 +62,6 @@
 				<td>IVA (16%):</td>
             	<td ng-bind="subtotal() * 0.16 | currency"></td>
             	<td></td>
-            	<td></td>
 			</tr>
 			<!--TOTAL-->
 			<tr class="onlyHover">
@@ -64,7 +70,6 @@
 				<td class="borderBottom"></td>
 				<td>Total:</td>
             	<td ng-bind="subtotal() + (subtotal()*0.16) | currency"></td>
-            	<td></td>
             	<td></td>
 			</tr>
 		</tfoot>
